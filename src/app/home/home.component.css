@@ -1,0 +1,18 @@
+.nav{
+    background-color: aquamarine;
+    width: 100%;
+    height: auto
+}
+.ManButton{
+    background-color: aquamarine;
+    position: relative;
+    left: 3%;
+}
+.backButton{
+    background-color: aquamarine;
+    position: relative;
+    left: 5%;
+}
+.btn-light{
+    border-color: aquamarine;
+}
