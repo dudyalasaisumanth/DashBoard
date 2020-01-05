@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { RouterModule, Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login',
@@ -9,13 +10,14 @@ import { RouterModule, Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   checkBool:Boolean;
-  constructor(private router:Router) { }
+  constructor(private router:Router,private service:UserService) { }
 
   ngOnInit() {
   }
   submitLoginForm(form:NgForm){
     console.log(form.value.email)
     if((form.value.email).endsWith("@infosys.com")){
+      this.service.setuser(form.value.email)
       console.log("true")
       this.router.navigate(['home']);
     }
