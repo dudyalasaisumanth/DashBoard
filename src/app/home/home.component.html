@@ -1,15 +1,21 @@
+<mat-checkbox>Check me!</mat-checkbox>
+<h4>Basic mat-select</h4>
+<mat-form-field>
+  <mat-label>Favorite food</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let food of options" [value]="food.value">
+      {{food}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
 
-<div class="nav">
-    <button class="ManButton btn" (click)="managerMethod()">manager</button>
-    <button class="backButton btn" (click)="backgroundMethod()">backGround</button>
-</div>
-
-<div *ngIf="manBoolean">
-    <label for="search">Search here</label>
-    <input type="text" id="search">
-    <button class="btn" 
-    (onclick)="searching(search)">Search</button>
-</div>
-<div *ngIf="backBoolean">
-    backgroundMethod
-</div>
+<h4>Basic native select</h4>
+<mat-form-field>
+  <mat-label>Cars</mat-label>
+  <select matNativeControl required>
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+  </select>
+</mat-form-field>
