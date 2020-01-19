@@ -34,7 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MatInputModule, MatButtonModule, MatSelectModule, MatIconModule,
     MatCheckboxModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

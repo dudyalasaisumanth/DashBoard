@@ -1,3 +1,34 @@
 <app-home></app-home>
-<button (click)="download()">clcik</button>
-<p>background works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <h1 align="center">Below are the steps for Background verification</h1  >
+        </div>
+        <div class="offset-md-2 col-md-8">
+            <ol>
+                <li>Download the below files required for background verification.</li>
+                <br>
+                <button (click)="f1()" class="btn btn-warning btn-sm">open <span class="glyphicon glyphicon-download-alt "></span> </button>
+                <a download="filename" target="_blank" href="../assets/datestimes.pdf">
+                    Click here to download the pdf
+                </a>
+                
+                <li class="top">Fill in the Details and upload below.</li>
+                <br>
+                <li><a> Upload the files. to be submitted for review and Access.</a>
+                    <br>
+                    <form action="">
+                        <input type="file" class="form-control-file top" #file required>
+                        <br>
+                        <button class="btn btn-primary btn-sm" [disabled]="file.value">submit</button>
+                    </form>
+                </li>
+            </ol>
+        </div>
+        
+    </div>
+</div>
+<!-- <button (click)="f1()">click</button>
+<a download="filename" target="_blank" href="../assets/datestimes.pdf">
+    Click here to download image
+  </a> -->

@@ -23,4 +23,7 @@ export class BackgroundComponent implements OnInit {
 		}), error => console.log('Error downloading the file'),
                  () => console.info('File downloaded successfully');
   }
+  f1() {
+    window.open('../assets/datestimes.pdf', '_blank');
+}
 }
