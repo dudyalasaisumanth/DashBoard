@@ -6,13 +6,16 @@
 .ManButton{
     background-color: aquamarine;
     position: relative;
-    left: 3%;
+    left: 10%;
 }
 .backButton{
     background-color: aquamarine;
     position: relative;
-    left: 5%;
+    left: 10%;
 }
+.About{
+    position: relative;
+    left: 10%;}
 .btn-light{
     border-color: aquamarine;
 }

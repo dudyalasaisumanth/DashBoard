@@ -12,7 +12,7 @@ export class ManagerDetailsComponent implements OnInit {
   projects:any;
   Description:string;
   constructor(private Activatedroute:ActivatedRoute) { }
-  data={"Srikanth":{
+  data={"SRIKANTH":{
     "No_OF_PROJECTS":3,
     "PROJECT_NAMES":["Fiona","OSDM","CPR"],
     "PROJECT_DESC":["A paragraph is a self-contained unit of a discourse in writing dealing with a"+
@@ -79,7 +79,7 @@ export class ManagerDetailsComponent implements OnInit {
     " of record "]
   },
   
-  "SURYA":{
+  "JAYASREE":{
     "No_OF_PROJECTS":2,
     "PROJECT_NAMES":["MICROSOFT","PTO"],
     "PROJECT_DESC":["A cursor is a pointer to this context area. PL/SQL controls the context"+
@@ -105,6 +105,7 @@ export class ManagerDetailsComponent implements OnInit {
   
   }}
   ngOnInit() {
+  console.log(this.Activatedroute.snapshot.params)
     this.manager=this.Activatedroute.snapshot.params.managerName
    
     this.projects=this.data[this.manager]["PROJECT_NAMES"]

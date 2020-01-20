@@ -16,10 +16,16 @@ export class LoginComponent implements OnInit {
   }
   submitLoginForm(form:NgForm){
     console.log(form.value.email)
-    if((form.value.email).endsWith("@infosys.com")){
+    if((form.value.email).endsWith("@infosys.com")) 
+    { 
+    if(((form.value.password).length) >= 8){
       this.service.setuser(form.value.email)
       console.log("true")
       this.router.navigate(['home']);
+      }
+    else{
+      this.checkBool=true;
+      }
     }
     else{
       this.checkBool=true;

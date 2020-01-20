@@ -24,6 +24,6 @@ export class BackgroundComponent implements OnInit {
                  () => console.info('File downloaded successfully');
   }
   f1() {
-    window.open('../assets/datestimes.pdf', '_blank');
+    window.open('../assets/agreement.pdf', '_blank');
 }
 }

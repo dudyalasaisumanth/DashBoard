@@ -11,7 +11,7 @@ import { Router, RouterModule, ActivatedRoute } from '@angular/router';
 export class ManagerComponent implements OnInit {
   myControl = new FormControl();
   bool:boolean;
-  options: string[] = ["Syam","Srikanth","Sruthi","Sweatha","Surya","Jayasree","Kalyan",""];
+  options: string[] = ["SRIKANTH","KALYAN","PRADEEP","DEVARAJ","NAGARAJ","SYAM","JAYASREE"];
   filteredOptions: Observable<string[]>;
 
   ngOnInit() {
