@@ -1,35 +1,51 @@
-<app-home></app-home>
+<button class="btn btn-primary homeclass" (click)="managerMethod()" [routerLink]="['/home']">home</button>
+<br>
 <div class="container-fluid">
     <div class="row">
         <div class="offset-md-3 col-md-6">
             <h1 align="center">Below are the steps for Background verification</h1  >
         </div>
+        
         <div class="offset-md-2 col-md-8">
-            <ol>
+            <hr>
+            <ul>
                 <li>Download the below files required for background verification.</li>
                 <br>
-                <button (click)="f1()" class="btn btn-warning btn-sm">open <span class="glyphicon glyphicon-download-alt "></span> </button>
-                <a download="filename" target="_blank" href="../assets/agreement.pdf">
-                    Click here to download the pdf
-                </a>
-                <a download="filename" target="_blank" href="../assets/PIIA.DOC">
-                    Click here to download the PIIA doc
-                </a>
-                <a download="filename" target="_blank" href="../assets/Background_Verification Form.xlsx">
-                    verification Form
-                </a>
-                
+                <ol type="I">
+                    <li>
+                        <a download="filename" target="_blank" href="../assets/agreement.pdf">
+                            Click here to download the pdf
+                        </a>
+                    </li>
+                    <li>
+                        <a download="filename" target="_blank" href="../assets/PIIA.DOC">
+                            Click here to download the PIIA doc
+                        </a>
+                    </li>
+                    <li>
+                        <a download="filename" target="_blank" href="../assets/Background_Verification Form.xlsx">
+                            verification Form
+                        </a>
+                    </li>
+                </ol>
                 <li class="top">Fill in the Details and upload below.</li>
                 <br>
                 <li><a> Upload the files. to be submitted for review and Access.</a>
-                    <br>
+                    
                     <form action="">
-                        <input type="file" class="form-control-file top" #file required>
                         <br>
-                        <button class="btn btn-primary btn-sm" [disabled]="file.value">submit</button>
+                        <div>Agreement Form:<input type="file" required></div>
+                        
+                        <br>
+                        <div class="piia"> PIIA:<input type="file" required></div>
+                       <br>
+                        <div> Verification Form:<input type="file" required></div>
+                        <br>
+                        <br>
+                        <button class="btn btn-primary btn-sm" [disabled]="file.value" align="center">submit</button>
                     </form>
                 </li>
-            </ol>
+            </ul>
         </div>
         
     </div>
