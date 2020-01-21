@@ -19,3 +19,8 @@
 .btn-light{
     border-color: aquamarine;
 }
+.col-md-6{
+    margin-top: 3%;
+    border: 3px solid #bfd2f0;
+    padding: 3%;
+}
