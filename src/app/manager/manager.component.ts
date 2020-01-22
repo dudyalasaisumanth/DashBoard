@@ -12,6 +12,7 @@ export class ManagerComponent implements OnInit {
   myControl = new FormControl();
   bool:boolean;
   options: string[] = ["SRIKANTH","KALYAN","PRADEEP","DEVARAJ","NAGARAJ","SYAM","JAYASREE"];
+  projects:string[][]=[["Fiona","OSDM","CPR"],["H&M","GMO"],["HLM"],["CISCO","RLO"],["APPLE"],["MICROSOFT","PTO"],["WELLSFARGO","STP"]]
   filteredOptions: Observable<string[]>;
 
   ngOnInit() {

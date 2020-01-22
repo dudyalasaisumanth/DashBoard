@@ -9,8 +9,10 @@ import { HttpResponse,  HttpClient } from '@angular/common/http';
 export class FileServiceService {
 
   constructor(private http:HttpClient) { }
-  downloadFile(): Observable<any>{		
-    console.log("click")
-		return this.http.get('C:/Users/dsumanth.PARTNERS/Desktop/RecentOrder_195204.doc', { responseType: "blob" });
-   }
+  
+  TriggerMail(data){
+    this.http.post<any>('url here', data).subscribe(data => {
+    console.log(data)
+})
+  }
 }

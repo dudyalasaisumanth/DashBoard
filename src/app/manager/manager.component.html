@@ -12,3 +12,28 @@
     </mat-form-field>
     <button class="btn btn-primary" (click)="searchingMethod()">search</button>
 </form>
+<hr>
+<div class="container" *ngIf="!bool">
+    <h1 align="center">Projects under Managers</h1>
+    <div class="row">
+        <div class="col-sm-10 projectsList" >
+            <table style="width:100%" class="table table-striped">
+                    <tr class="thead-dark">
+                        <th>ManagerName</th>
+                        <th>Projects</th>
+                    </tr>
+                    <tr *ngFor="let manager of options;index as i;">
+                        <td>{{manager}}</td>
+                        <td>{{projects[i]}}</td>
+                    </tr>
+            </table>
+            <!-- <div *ngFor="let manager of options;index as i;" >
+                <h3 align="center" class="pname">{{manager}}</h3>
+                <div class="col-sm-6 projectsList" >
+                    {{projects[i]}}
+                </div>
+            </div> -->
+        </div>
+        
+    </div>
+</div>

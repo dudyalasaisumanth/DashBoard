@@ -8,22 +8,56 @@ import { FileServiceService } from '../file-service.service';
 })
 export class BackgroundComponent implements OnInit {
 
-  constructor(private fileService: FileServiceService) { }
-
   ngOnInit() {
   }
-  download() {
-    this.fileService.downloadFile().subscribe(response => {
-			let blob:any = new Blob([response.blob()], { type: 'text/json; charset=utf-8' });
-			const url= window.URL.createObjectURL(blob);
-      window.open(url);
-      console.log(response.url)
-			window.location.href = response.url;
-			// fileSaver.saveAs(blob, 'employees.json');
-		}), error => console.log('Error downloading the file'),
-                 () => console.info('File downloaded successfully');
-  }
-  f1() {
-    window.open('../assets/agreement.pdf', '_blank');
+   k={"filedata":"","filename":""}
+   list:any[]=[]
+
+sellersPermitFile: any;
+sellersPermitString: string;
+currentId: number = 0;
+constructor(private service:FileServiceService){}
+public picked(event,count) {
+  console.log(count)
+  this.k={"filedata":"","filename":""}
+  // this.currentId = field;
+  let fileList: FileList = event.target.files;
+
+  this.k['filename']=fileList[0].name
+  // if (fileList.length > 0) {
+    const file: File = fileList[0];
+    this.sellersPermitFile = file;
+    this.handleInputChange(file); //turn into base64
+  // }
+  // else {
+  //   alert("No file selected");
+  // }
+
+}
+handleInputChange(files) {
+  var file = files;
+  // var pattern = /image-*/;
+  var reader = new FileReader();
+  // if (!file.type.match(pattern)) {
+  //   alert('invalid format');
+  //   return;
+  // }
+  reader.onloadend = this._handleReaderLoaded.bind(this);
+  reader.readAsDataURL(file);
+}
+_handleReaderLoaded(e) {
+  let reader = e.target;
+  var base64result = reader.result.substr(reader.result.indexOf(',') + 1);
+  //this.imageSrc = base64result;
+  this.sellersPermitString = base64result;
+  this.k['filedata']=this.sellersPermitString;
+  console.log('1', this.k);
+  this.list.push(this.k)
+  console.log(this.list);
+}
+
+
+triggerer(){
+  this.service.TriggerMail(this.list)
 }
 }

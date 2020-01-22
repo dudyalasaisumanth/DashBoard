@@ -32,18 +32,22 @@
                 <br>
                 <li><a> Upload the files. to be submitted for review and Access.</a>
                     
-                    <form action="">
-                        <br>
-                        <div>Agreement Form:<input type="file" required></div>
-                        
-                        <br>
-                        <div class="piia"> PIIA:<input type="file" required></div>
-                       <br>
-                        <div> Verification Form:<input type="file" required></div>
-                        <br>
-                        <br>
-                        <button class="btn btn-primary btn-sm" [disabled]="file.value" align="center">submit</button>
-                    </form>
+                    <form>
+                            <br>
+                            <div>
+                                <label for="file">Choose File</label>
+                                <input type="file"
+                                       id="file"
+                                       (change)="picked($event)">
+                            </div>                   
+                            <br>
+                            <div class="piia" > PIIA:<input type="file" required (change)="picked($event)"></div>
+                           <br>
+                            <div> Verification Form:<input type="file" required (change)="picked($event)"></div>
+                            <br>
+                            <br>
+                            <button class="btn btn-primary btn-sm" type="submit" (click)="triggerer()" align="center">submit</button>
+                        </form>
                 </li>
             </ul>
         </div>
