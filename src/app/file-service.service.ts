@@ -11,7 +11,7 @@ export class FileServiceService {
   constructor(private http:HttpClient) { }
   
   TriggerMail(data){
-    this.http.post<any>('url here', data).subscribe(data => {
+    this.http.post<any>('http://0.0.0.0:8888/sendemail', data).subscribe(data => {
     console.log(data)
 })
   }
