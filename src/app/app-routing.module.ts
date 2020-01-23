@@ -6,6 +6,7 @@ import { AuthGuard } from './auth.guard';
 import { ManagerDetailsComponent } from './manager-details/manager-details.component';
 import { ManagerComponent } from './manager/manager.component';
 import { BackgroundComponent } from './background/background.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'ManagerDetails',component:ManagerDetailsComponent},
   {path:"manager" , component:ManagerComponent},
-  {path:"background" , component:BackgroundComponent}
+  {path:"background" , component:BackgroundComponent},
+  {path:"details",component:AdminComponent}
   // {
   //   path: 'home',
     

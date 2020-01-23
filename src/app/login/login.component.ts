@@ -9,26 +9,42 @@ import { UserService } from '../user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  checkBool:Boolean;
+  checkBool:Boolean=true;
+  admin:Boolean;
+  user_mail:string= "d";
+  user_password:string="1";
+  admin_mail:string="a";
+  admin_password:string="1";
+  
   constructor(private router:Router,private service:UserService) { }
 
   ngOnInit() {
   }
   submitLoginForm(form:NgForm){
     console.log(form.value.email)
-    if((form.value.email).endsWith("@infosys.com")) 
+    if (((form.value.email) == (this.admin_mail)) && ((form.value.password) == (this.admin_password))){
+      this.admin=true
+      this.checkBool=true;
+    }
+    else if (((form.value.email) == (this.user_mail)) && ((form.value.password) == (this.user_password))){
+      this.checkBool=true
+    }
+    else{
+      this.checkBool=false
+    }
+    console.log(this.checkBool)
+    console.log(this.admin+"admin")
+   
+    this.service.setadminbool(this.admin);
+    
+    if(this.checkBool) 
     { 
-    if(((form.value.password).length) >= 8){
       this.service.setuser(form.value.email)
-      console.log("true")
+      
+      // console.log("true")
       this.router.navigate(['home']);
       }
-    else{
-      this.checkBool=true;
-      }
+ 
     }
-    else{
-      this.checkBool=true;
-    }
-  }
+    
 }

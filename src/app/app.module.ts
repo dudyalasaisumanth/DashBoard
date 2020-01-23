@@ -14,6 +14,7 @@ import { ManagerComponent } from './manager/manager.component';
 import { BackgroundComponent } from './background/background.component';
 import { ManagerDetailsComponent } from './manager-details/manager-details.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     ManagerComponent,
     BackgroundComponent,
-    ManagerDetailsComponent
+    ManagerDetailsComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
