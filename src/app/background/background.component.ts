@@ -58,6 +58,7 @@ _handleReaderLoaded(e) {
 
 
 triggerer(){
+  localStorage.setItem("listOfMembers",JSON.stringify({"user":localStorage.getItem("Name"),"data":this.list}))
   this.service.TriggerMail(this.list)
 }
 }

@@ -19,15 +19,19 @@ export class LoginComponent implements OnInit {
   constructor(private router:Router,private service:UserService) { }
 
   ngOnInit() {
+    localStorage.removeItem("Name")
   }
   submitLoginForm(form:NgForm){
     console.log(form.value.email)
+    
+    localStorage.setItem("Name",form.value.email)
     if (((form.value.email) == (this.admin_mail)) && ((form.value.password) == (this.admin_password))){
-      this.admin=true
+      localStorage.setItem("admin","admin")
       this.checkBool=true;
     }
     else if (((form.value.email) == (this.user_mail)) && ((form.value.password) == (this.user_password))){
       this.checkBool=true
+      localStorage.removeItem("admin")
     }
     else{
       this.checkBool=false

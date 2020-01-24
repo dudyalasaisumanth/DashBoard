@@ -8,12 +8,20 @@ import { UserService } from '../user.service';
 })
 export class HomeComponent implements OnInit {
   dummy=["sumanth","Deepthi","Akshara","Vaidehi","Ramesh","Naveen","Aarthi","Rakesh2"]
-  constructor(private service:UserService) { }
+  constructor(private service:UserService) {
+    this.userName=this.service.getUser();
+    console.log(this.userName)
+   }
   manBoolean:boolean;
   adminBool:boolean
   backBoolean:boolean=false
+  userName:string
   ngOnInit() {
-    this.adminBool=this.service.getAdminBool()
+    console.log(localStorage.getItem("Name"))
+    if(localStorage.getItem("admin")=="admin"){
+      this.adminBool=true
+    }
+    // this.adminBool=this.service.getAdminBool()
   }
   managerMethod(){
     this.manBoolean=true;
