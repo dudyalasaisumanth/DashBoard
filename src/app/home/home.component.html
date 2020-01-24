@@ -1,4 +1,3 @@
-<!-- <div>welcome {{userName}}</div> -->
 <div class="container">
     <div class="row">
         <div class="offset-md-3 col-md-6">
@@ -14,8 +13,9 @@
                 <hr>
                 <li>Please click the below button to search based on Manager</li>
                 <br>
-                <button class="btn btn-primary" (click)="backgroundMethod()" [routerLink]="['/background']">Background Check</button>
+                <button class="btn btn-primary" [disabled]="adminBool" (click)="backgroundMethod()" [routerLink]="['/background']">Background Check</button>
                 <br>
+                <small *ngIf="adminBool">applying for bg check is disabled</small>
             </ol>
             <!-- <button class="ManButton btn" (click)="managerMethod()" [routerLink]="['/manager']">Manager Name</button> -->
         </div>

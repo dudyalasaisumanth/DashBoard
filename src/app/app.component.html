@@ -9,6 +9,7 @@
 </div>
 <div style="float:right;margin-top: 1.5em;">
 <span style="color:#9d9d9d;font-size:20px;font-weight:bold;">Welcome {{name}}</span>
+<button *ngIf="name" class="btn" [routerLink]="['/login']">logout</button>
 </div>
 </nav>
 <router-outlet></router-outlet>

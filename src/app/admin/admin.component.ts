@@ -13,21 +13,19 @@ export class AdminComponent implements OnInit {
   ngOnInit() {
     this.list=localStorage.getItem("listOfMembers")
     this.list=JSON.parse(this.list)
-    console.log(this.list)
+    
     this.arrayData = Object.keys(this.list).map(key => ({type: key, value: this.list[key]}));
-    console.log(this.arrayData[1].value)
-     const imagePath = this._sanitizer.bypassSecurityTrustResourceUrl(this.arrayData[1].value.filedata);
-     console.log(imagePath)
-     this.showPdf()
+    console.log(this.arrayData)
+    //  const imagePath = this._sanitizer.bypassSecurityTrustResourceUrl(this.arrayData[1].value.filedata);
+    //  console.log(imagePath)
   }
-  showPdf() {
-    console.log(this.arrayData[1].value[0].filedata)
-    const linkSource = 'data:application/pdf;base64,' + this.arrayData[1].value[0].filedata;
+  showPdf(data) {
+    console.log(data)
+    const linkSource = 'data:application/pdf;base64,' + data.filedata;
     const downloadLink = document.createElement("a");
-    const fileName = "sample.pdf";
-
+    // const fileName = "sample.pdf";
     downloadLink.href = linkSource;
-    downloadLink.download = fileName;
+    downloadLink.download = data.filename;
     downloadLink.click();
 }
 

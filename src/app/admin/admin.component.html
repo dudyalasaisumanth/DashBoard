@@ -6,9 +6,14 @@
             <h1>main</h1>
             {{arrayData[0].value}}
         </div>
-        <div class="col-sm-6" *ngFor="let i of arrayData[1].value">
-            {{i.filedata}}
+        <div class="col-sm-6" >
+           <h1>main2</h1>
+           <div *ngFor="let data of this.arrayData[1].value">
+                <a (click)="showPdf(data)">click</a>
+           </div>
+           
             <!-- <img src="{{'data:image/jpg;base64,' + i.filedata}}" /> -->
+            
         </div>
     </div>
 </div>

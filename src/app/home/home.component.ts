@@ -7,7 +7,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  dummy=["sumanth","Deepthi","Akshara","Vaidehi","Ramesh","Naveen","Aarthi","Rakesh2"]
+  // dummy=["sumanth","Deepthi","Akshara","Vaidehi","Ramesh","Naveen","Aarthi","Rakesh2"]
   constructor(private service:UserService) {
     this.userName=this.service.getUser();
     console.log(this.userName)
