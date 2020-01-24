@@ -11,8 +11,8 @@ import { UserService } from '../user.service';
 export class LoginComponent implements OnInit {
   checkBool:Boolean=true;
   admin:Boolean;
-  user_mail:string= "d";
-  user_password:string="1";
+  user_mail:string[]= ["d","s"];
+  user_password:number[]=[1,2];
   admin_mail:string="a";
   admin_password:string="1";
   
@@ -23,21 +23,31 @@ export class LoginComponent implements OnInit {
   }
   submitLoginForm(form:NgForm){
     console.log(form.value.email)
-    
+    // console.log(this.user_mail.includes(form.value.email))
     localStorage.setItem("Name",form.value.email)
     if (((form.value.email) == (this.admin_mail)) && ((form.value.password) == (this.admin_password))){
       localStorage.setItem("admin","admin")
       this.checkBool=true;
     }
-    else if (((form.value.email) == (this.user_mail)) && ((form.value.password) == (this.user_password))){
-      this.checkBool=true
-      localStorage.removeItem("admin")
+    
+    else if (this.user_mail.includes(form.value.email)){
+      // console.log("ldm,c")
+      // console.log(this.user_mail.indexOf(form.value.email))
+      if(this.user_password[this.user_mail.indexOf(form.value.email)]==form.value.password){
+        this.checkBool=true
+        localStorage.removeItem("admin")
+      }
+      else{
+        this.checkBool=false
+      }
+      
+      
     }
     else{
       this.checkBool=false
     }
-    console.log(this.checkBool)
-    console.log(this.admin+"admin")
+    // console.log(this.checkBool)
+    // console.log(this.admin+"admin")
    
     this.service.setadminbool(this.admin);
     

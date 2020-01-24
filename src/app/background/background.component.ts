@@ -7,8 +7,23 @@ import { FileServiceService } from '../file-service.service';
   styleUrls: ['./background.component.css']
 })
 export class BackgroundComponent implements OnInit {
-
+dataLocal:any;
+name:string;
+allowBool:boolean=true;
+arrayData:any[]
   ngOnInit() {
+    this.dataLocal=JSON.parse(localStorage.getItem("listOfMembers"))
+    this.name=localStorage.getItem("Name")
+    console.log(this.name);
+    console.log(this.dataLocal);
+    if(this.dataLocal!="null"){
+      this.allowBool=false
+    }
+    // if(this.dataLocal)
+    // console.log(this.dataLocal)
+    
+    this.arrayData = Object.keys(this.dataLocal).map(key => ({type: key, value: this.dataLocal[key]}));
+    console.log(this.arrayData)
   }
    k={"filedata":"","filename":""}
    list:any[]=[]
@@ -18,7 +33,7 @@ sellersPermitString: string;
 currentId: number = 0;
 constructor(private service:FileServiceService){}
 public picked(event,count) {
-  console.log(count)
+  // console.log(count)
   this.k={"filedata":"","filename":""}
   // this.currentId = field;
   let fileList: FileList = event.target.files;
@@ -51,14 +66,17 @@ _handleReaderLoaded(e) {
   //this.imageSrc = base64result;
   this.sellersPermitString = base64result;
   this.k['filedata']=this.sellersPermitString;
-  console.log('1', this.k);
+  // console.log('1', this.k);
   this.list.push(this.k)
-  console.log(this.list);
+  // console.log(this.list);
 }
 
 
 triggerer(){
-  localStorage.setItem("listOfMembers",JSON.stringify({"user":localStorage.getItem("Name"),"data":this.list}))
+  
+this.arrayData.push({"user":localStorage.getItem("Name"),"data":this.list})
+console.log( this.arrayData)
+  // localStorage.setItem("listOfMembers",JSON.stringify({"user":localStorage.getItem("Name"),"data":this.list}))
   this.service.TriggerMail(this.list)
 }
 }

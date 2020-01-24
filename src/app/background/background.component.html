@@ -1,6 +1,9 @@
 <button class="btn btn-primary homeclass" [routerLink]="['/home']">home</button>
 <br>
-<div class="container-fluid">
+<div *ngIf="!allowBool" class="center">
+    <h1>already applied for verification.</h1>
+</div>
+<div class="container-fluid" *ngIf="allowBool">
     <div class="row">
         <div class="offset-md-3 col-md-6">
             <h1 align="center">Below are the steps for Background verification</h1  >
