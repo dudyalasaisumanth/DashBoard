@@ -11,7 +11,7 @@ import { UserService } from '../user.service';
 export class LoginComponent implements OnInit {
   checkBool:Boolean=true;
   admin:Boolean;
-  user_mail:string[]= ["d","s"];
+  user_mail:string[]= ["deepthi","sumanth"];
   user_password:number[]=[1,2];
   admin_mail:string="a";
   admin_password:string="1";

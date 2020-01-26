@@ -2,14 +2,20 @@
 
 <div class="container">
     <div class="row">
+            <div class="offset-2 col-sm-4">
+                <h2>UserNAme</h2>
+            </div>
+            <div class="col-sm-6" >
+                <h2>main2</h2>
+            </div>
+        </div>
+    <div class="row" *ngFor="let data of this.arrayData">
         <div class="offset-2 col-sm-4">
-            <h1>main</h1>
-            {{arrayData[0].value}}
+            {{data.user}}
         </div>
         <div class="col-sm-6" >
-           <h1>main2</h1>
-           <div *ngFor="let data of this.arrayData[1].value">
-                <a (click)="showPdf(data)">click</a>
+           <div >
+                <a (click)="showPdf(data.data)">click</a>
            </div>
            
             <!-- <img src="{{'data:image/jpg;base64,' + i.filedata}}" /> -->

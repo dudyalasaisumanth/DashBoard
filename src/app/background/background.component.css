@@ -15,3 +15,13 @@
     font-size: 15px;
  
 }
+ul{
+    left: 12%;
+    position: relative;
+    font-size: medium;
+    font-style: calibri;
+    font-family: calibri;   
+}
+.borderless td, .borderless th {
+    border: none;
+}

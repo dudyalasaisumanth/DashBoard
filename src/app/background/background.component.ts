@@ -1,29 +1,73 @@
 import { Component, OnInit } from '@angular/core';
 import { FileServiceService } from '../file-service.service';
-
+export interface data{
+  name:string;
+  data:string[];
+}
 @Component({
   selector: 'app-background',
   templateUrl: './background.component.html',
   styleUrls: ['./background.component.css']
 })
 export class BackgroundComponent implements OnInit {
-dataLocal:any;
+dataLocal:any[];
 name:string;
 allowBool:boolean=true;
-arrayData:any[]
+usersexist:string[]=[]
+arrayData:any[];
+data=[{ 
+  name: "sai",
+  data: ["ads","dasds"]
+  // Tom: { age: 21, salary:5000}
+}]
   ngOnInit() {
+    // Object.keys(this.dataLocal).map(key => ({type: key, value: this.dataLocal[key]}));
+    // console.log(this.data)
+    // console.log(Object.keys(this.data).map(key => ({type: key, value: this.data[key]})));
+    // var data1=Object.keys(this.data).map(key => ({type: key, value: this.data[key]}))
+    // console.log(data1)
     this.dataLocal=JSON.parse(localStorage.getItem("listOfMembers"))
+    console.log(this.dataLocal  )
     this.name=localStorage.getItem("Name")
-    console.log(this.name);
-    console.log(this.dataLocal);
-    if(this.dataLocal!="null"){
-      this.allowBool=false
-    }
+    // console.log(this.name);
+    // console.log(this.dataLocal[0].user);
+    
+    // console.log(this.usersexist)
+    
+    // if(this.usersexist.includes(this.name)){
+    //   this.allowBool=false
+    // }
+    // else{
+      // this.allowBool=true
+      // console.log(this.dataLocal[0].user)
+      if(this.dataLocal!=null){
+        for(let i=0;i<this.dataLocal.length;i++){
+          // console.log(this.dataLocal)
+          this.usersexist.push(this.dataLocal[i].user)
+        }
+        if(this.usersexist.includes(this.name)){
+          this.allowBool=false
+        }
+        else{
+          this.allowBool=true
+          console.log(this.dataLocal)
+          // this.arrayData = Object.keys(this.dataLocal).map(key => ({type: key, value: this.dataLocal[key]}));
+
+        }
+          //  this.allowBool=false
+          
+         }
+
+    // }
+    // if(this.dataLocal!=null){
+    //   this.allowBool=false
+    //   this.arrayData = Object.keys(this.dataLocal).map(key => ({type: key, value: this.dataLocal[key]}));
+    // }
     // if(this.dataLocal)
     // console.log(this.dataLocal)
     
-    this.arrayData = Object.keys(this.dataLocal).map(key => ({type: key, value: this.dataLocal[key]}));
-    console.log(this.arrayData)
+    
+    // console.log(localStorage.getItem("listOfMembers"))
   }
    k={"filedata":"","filename":""}
    list:any[]=[]
@@ -73,9 +117,18 @@ _handleReaderLoaded(e) {
 
 
 triggerer(){
-  
-this.arrayData.push({"user":localStorage.getItem("Name"),"data":this.list})
-console.log( this.arrayData)
+  if(this.dataLocal==null){
+    this.dataLocal=[{"user":localStorage.getItem("Name"),"data":this.k}]
+    localStorage.setItem("listOfMembers",JSON.stringify(this.dataLocal))
+  }
+  else{
+    // console.log(this.dataLocal)
+    localStorage.removeItem("listOfMembers")
+    this.dataLocal.push({"user":localStorage.getItem("Name"),"data":this.k})
+    localStorage.setItem("listOfMembers",JSON.stringify(this.dataLocal))
+  }
+// this.arrayData.push({"user":localStorage.getItem("Name"),"data":this.list})
+// console.log( localStorage.getItem("listOfMembers"))
   // localStorage.setItem("listOfMembers",JSON.stringify({"user":localStorage.getItem("Name"),"data":this.list}))
   this.service.TriggerMail(this.list)
 }

@@ -8,8 +8,8 @@
 <span style='font-family: Times New Roman;font-size:30px'> CISCO<sub style='font-size:20px'>For You</sub></span>
 </div>
 <div style="float:right;margin-top: 1.5em;">
-<span style="color:#9d9d9d;font-size:20px;font-weight:bold;">Welcome {{name}}</span>
-<button *ngIf="name" class="btn" [routerLink]="['/login']">logout</button>
+<span style="font-size:20px;font-weight:bold;">Welcome {{name}} <button *ngIf="name" class="btn" [routerLink]="['/login']" style="font-size:22px;font-weight:bold;">logout</button></span>
+
 </div>
 </nav>
 <router-outlet></router-outlet>

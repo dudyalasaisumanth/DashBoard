@@ -14,7 +14,7 @@ export class AdminComponent implements OnInit {
     this.list=localStorage.getItem("listOfMembers")
     this.list=JSON.parse(this.list)
     
-    this.arrayData = Object.keys(this.list).map(key => ({type: key, value: this.list[key]}));
+    this.arrayData = Object.keys(this.list).map(key => ({user: this.list[key].user, data: this.list[key].data}));
     console.log(this.arrayData)
     //  const imagePath = this._sanitizer.bypassSecurityTrustResourceUrl(this.arrayData[1].value.filedata);
     //  console.log(imagePath)

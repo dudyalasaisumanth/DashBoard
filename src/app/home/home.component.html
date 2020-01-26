@@ -1,8 +1,14 @@
 <div class="container">
-    <div class="row">
-        <div class="offset-md-3 col-md-6">
+        <button class="btn btn-default" [routerLink]="['/login']" style="float: right">back</button>
+    <br>
+    <br>
+    <br>
+
+    <div class="row" style="background-color:#d5d59d;">
+
+        <div class="col-xs-4">
             <button class="btn btn-primary" [routerLink]="['/details']" *ngIf="adminBool">details</button>
-            <button class="btn btn-primary" [routerLink]="['/login']">back</button>
+            
             <br>
             <br>
             <ol>
@@ -19,5 +25,6 @@
             </ol>
             <!-- <button class="ManButton btn" (click)="managerMethod()" [routerLink]="['/manager']">Manager Name</button> -->
         </div>
+       
     </div>
 </div>

@@ -1,15 +1,15 @@
-<button class="btn btn-primary homeclass" [routerLink]="['/home']">home</button>
-<br>
+
+
 <div *ngIf="!allowBool" class="center">
     <h1>already applied for verification.</h1>
 </div>
-<div class="container-fluid" *ngIf="allowBool">
-    <div class="row">
-        <div class="offset-md-3 col-md-6">
-            <h1 align="center">Below are the steps for Background verification</h1  >
-        </div>
-        
-        <div class="offset-md-2 col-md-8">
+<div class="container" *ngIf="allowBool">
+    <button class="btn btn-default homeclass" [routerLink]="['/home']" style="float: right">home</button>
+    <br>
+<br><br>
+    <div class="row" style="background-color: #d5d59d"> 
+        <div class="col-lg-12" >
+                <h1 align="center">Below are the steps for Background verification</h1  >
             <hr>
             <ul>
                 <li>Download the below files required for background verification.</li>
@@ -34,27 +34,29 @@
                 <li class="top">Fill in the Details and upload below.</li>
                 <br>
                 <li><a> Upload the files. to be submitted for review and Access.</a>
-                    
+                    <br>
                     <form>
+                            <table class="table borderless">
+                                    <tr>
+                                        <td>bg check</td>
+                                        <td> <input type="file" id="file" (change)="picked($event)"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>PIIA</td>
+                                        <td> <input type="file" id="file" (change)="picked($event)"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Verification Form:</td>
+                                        <td> <input type="file" id="file" (change)="picked($event)"></td>
+                                    </tr>
+                                </table>
                             <br>
-                            <div>
-                                <label for="file">Choose File</label>
-                                <input type="file"
-                                       id="file"
-                                       (change)="picked($event)">
-                            </div>                   
-                            <br>
-                            <div class="piia" > PIIA:<input type="file" required (change)="picked($event)"></div>
-                           <br>
-                            <div> Verification Form:<input type="file" required (change)="picked($event)"></div>
-                            <br>
-                            <br>
+                         
                             <button class="btn btn-primary btn-sm" type="submit" (click)="triggerer()" align="center">submit</button>
                         </form>
                 </li>
             </ul>
-        </div>
-        
+        </div>        
     </div>
 </div>
 <!-- <button (click)="f1()">click</button>
