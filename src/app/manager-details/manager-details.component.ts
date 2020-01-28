@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { __core_private_testing_placeholder__ } from '@angular/core/testing';
 
 @Component({
@@ -11,7 +11,7 @@ export class ManagerDetailsComponent implements OnInit {
   manager:string;
   projects:any;
   Description:string;
-  constructor(private Activatedroute:ActivatedRoute) { }
+  constructor(private Activatedroute:ActivatedRoute,private router:Router) { }
   data={"SRIKANTH":{
     "No_OF_PROJECTS":3,
     "PROJECT_NAMES":["Fiona","OSDM","CPR"],
@@ -109,6 +109,8 @@ export class ManagerDetailsComponent implements OnInit {
     this.manager=this.Activatedroute.snapshot.params.managerName
    
     this.projects=this.data[this.manager]["PROJECT_NAMES"]
+    //re uses route
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
   description(index){
     this.Description=this.data[this.manager]["PROJECT_DESC"][index]

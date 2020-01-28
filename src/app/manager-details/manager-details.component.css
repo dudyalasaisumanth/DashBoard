@@ -1,6 +1,5 @@
 .projectsList{
-    background-color: #e0f2f7;
-    left: 10%;
+    background-color: #dcdccc;
     border: 1px solid #bee0e9;
     box-shadow: 0 0 3px 3px #888888;
     /* position: absolute;
@@ -12,7 +11,4 @@
 .homeclass{
     float: right;
     margin-right: 1%;
-}
-.row{
-    
 }

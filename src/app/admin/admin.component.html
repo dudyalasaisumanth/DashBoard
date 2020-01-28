@@ -1,25 +1,37 @@
+<br>
+<br>
 
-
-<div class="container">
-    <div class="row">
-            <div class="offset-2 col-sm-4">
-                <h2>UserNAme</h2>
+    <div align="center" style="color: #215d82"><h1>please verify below credentials and approve</h1></div>
+<div class="container" style="background-color: #dcdccc">
+    <div class="row" >
+            <div class="offset-1 col-sm-4">
+                <h2>UserName</h2>
             </div>
-            <div class="col-sm-6" >
-                <h2>main2</h2>
+            <div class="col-sm-4" >
+                <h2>uploaded files</h2>
+            </div>
+            <div class="col-sm-2" >
+                <h2>approve/deney</h2>
             </div>
         </div>
-    <div class="row" *ngFor="let data of this.arrayData">
-        <div class="offset-2 col-sm-4">
+    <div class="row"  *ngFor="let data of this.arrayData">
+        <br>
+        <div class="offset-1 col-sm-4">
             {{data.user}}
         </div>
-        <div class="col-sm-6" >
-           <div >
-                <a (click)="showPdf(data.data)">click</a>
+        <div class="col-sm-4" >
+           <div *ngFor="let file of data.data">
+                <a (click)="showPdf(file)">{{file["filename"]}}</a>
            </div>
-           
             <!-- <img src="{{'data:image/jpg;base64,' + i.filedata}}" /> -->
             
         </div>
+        <div class="col-sm-2" >
+            <button class="btn btn-primary btn-sm" type="button" (click)="approveMethod(data)">approve</button>.
+            <button class="btn btn-danger btn-sm" type="button" >deney</button>
+            <br>
+        </div>
+        
     </div>
+    <br>
 </div>

@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   admin:Boolean;
   user_mail:string[]= ["deepthi","sumanth"];
   user_password:number[]=[1,2];
-  admin_mail:string="a";
+  admin_mail:string="admin";
   admin_password:string="1";
   
   constructor(private router:Router,private service:UserService) { }

@@ -13,12 +13,12 @@
     <button class="btn btn-primary" (click)="searchingMethod()">search</button>
 </form>
 <hr>
-<div class="container" *ngIf="!bool">
+<div class="container" *ngIf="bool">
     <h1 align="center">Projects under Managers</h1>
-    <div class="row">
+    <div class="row" >
         <div class="col-sm-10 projectsList" >
-            <table style="width:100%" class="table table-striped">
-                    <tr class="thead-dark">
+            <table style="width:100%" class="table table-striped borderless">
+                    <tr>
                         <th>ManagerName</th>
                         <th>Projects</th>
                     </tr>

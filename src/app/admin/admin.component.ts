@@ -28,5 +28,8 @@ export class AdminComponent implements OnInit {
     downloadLink.download = data.filename;
     downloadLink.click();
 }
+approveMethod(data){
+  console.log(data)
+}
 
 }

@@ -10,7 +10,7 @@ import { Router, RouterModule, ActivatedRoute } from '@angular/router';
 })
 export class ManagerComponent implements OnInit {
   myControl = new FormControl();
-  bool:boolean;
+  bool:boolean=true;
   options: string[] = ["SRIKANTH","KALYAN","PRADEEP","DEVARAJ","NAGARAJ","SYAM","JAYASREE"];
   projects:string[][]=[["Fiona","OSDM","CPR"],["H&M","GMO"],["HLM"],["CISCO","RLO"],["APPLE"],["MICROSOFT","PTO"],["WELLSFARGO","STP"]]
   filteredOptions: Observable<string[]>;
@@ -21,8 +21,12 @@ export class ManagerComponent implements OnInit {
         startWith(''),
         map(value => this._filter(value))
       );
+      console.log(this.Activatedroute.snapshot.params["managerName"])
+      if(this.Activatedroute.snapshot.params["managerName"]!=undefined){
+        this.bool=false
+      }
   }
-  constructor(private router:Router){
+  constructor(private router:Router,private Activatedroute:ActivatedRoute){
 
   }
   private _filter(value: string): string[] {
@@ -31,6 +35,8 @@ export class ManagerComponent implements OnInit {
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
   public searchingMethod(){
+    console.log("search")
+    this.bool=false;
     console.log(this.myControl.value)
     if(this.options.includes(this.myControl.value)){
       console.log("true")

@@ -1,15 +1,21 @@
 
 
-<div *ngIf="!allowBool" class="center">
-    <h1>already applied for verification.</h1>
+<div *ngIf="!allowBool" class="container">
+        <div class="row">
+                <div class="col-xs-12">
+                        <h1 align="center">you have already applied successfully for review please wait until further process</h1>
+                </div>
+            </div>
 </div>
-<div class="container" *ngIf="allowBool">
+<div class="container" *ngIf="allowBool && !successbool">
     <button class="btn btn-default homeclass" [routerLink]="['/home']" style="float: right">home</button>
     <br>
 <br><br>
-    <div class="row" style="background-color: #d5d59d"> 
+    <div class="row" style="background-color: #dcdccc"> 
+        <br>
         <div class="col-lg-12" >
-                <h1 align="center">Below are the steps for Background verification</h1  >
+            <br>
+                <h1 align="center" style="font-weight: bold">Below are the steps for Background verification</h1  >
             <hr>
             <ul>
                 <li>Download the below files required for background verification.</li>
@@ -52,11 +58,21 @@
                                 </table>
                             <br>
                          
-                            <button class="btn btn-primary btn-sm" type="submit" (click)="triggerer()" align="center">submit</button>
+                            <button class="btn btn-primary btn-sm" type="button" (click)="triggerer()" align="center">submit</button>
                         </form>
                 </li>
             </ul>
         </div>        
+    </div>
+</div>
+<br>
+<br><br>
+<br><br>
+<div *ngIf="successbool" class="container">
+    <div class="row">
+        <div class="col-xs-12">
+                <h1 align="center">you have applied successfully for review</h1>
+        </div>
     </div>
 </div>
 <!-- <button (click)="f1()">click</button>

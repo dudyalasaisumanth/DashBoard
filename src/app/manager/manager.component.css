@@ -6,3 +6,13 @@ mat-form-field{
     float: right;
     margin-right: 1%;
 }
+.row{
+    
+    /* font-size: medium; */
+    font-style: calibri;
+    font-family: calibri; 
+    background-color: #dcdccc
+}
+.borderless td, .borderless th {
+    border: none;
+}

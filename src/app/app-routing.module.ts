@@ -13,11 +13,11 @@ import { AdminComponent } from './admin/admin.component';
 const routes: Routes = [
   // ,canActivate:[AuthGuard]
   {path:'',redirectTo:'login',pathMatch:"full"},
-  {path:'home',component:HomeComponent },
+  {path:'home',component:HomeComponent,canActivate:[AuthGuard] },
   {path:'login',component:LoginComponent},
-  {path:'ManagerDetails',component:ManagerDetailsComponent},
-  {path:"manager" , component:ManagerComponent},
-  {path:"background" , component:BackgroundComponent},
+  {path:'ManagerDetails',component:ManagerDetailsComponent,canActivate:[AuthGuard]},
+  {path:"manager" , component:ManagerComponent,canActivate:[AuthGuard]},
+  {path:"background" , component:BackgroundComponent,canActivate:[AuthGuard]},
   {path:"details",component:AdminComponent}
   // {
   //   path: 'home',

@@ -12,6 +12,7 @@ export interface data{
 export class BackgroundComponent implements OnInit {
 dataLocal:any[];
 name:string;
+successbool:boolean
 allowBool:boolean=true;
 usersexist:string[]=[]
 arrayData:any[];
@@ -117,19 +118,20 @@ _handleReaderLoaded(e) {
 
 
 triggerer(){
+  this.successbool=true;
   if(this.dataLocal==null){
-    this.dataLocal=[{"user":localStorage.getItem("Name"),"data":this.k}]
+    this.dataLocal=[{"user":localStorage.getItem("Name"),"data":this.list}]
     localStorage.setItem("listOfMembers",JSON.stringify(this.dataLocal))
   }
   else{
     // console.log(this.dataLocal)
     localStorage.removeItem("listOfMembers")
-    this.dataLocal.push({"user":localStorage.getItem("Name"),"data":this.k})
+    this.dataLocal.push({"user":localStorage.getItem("Name"),"data":this.list})
     localStorage.setItem("listOfMembers",JSON.stringify(this.dataLocal))
   }
 // this.arrayData.push({"user":localStorage.getItem("Name"),"data":this.list})
 // console.log( localStorage.getItem("listOfMembers"))
   // localStorage.setItem("listOfMembers",JSON.stringify({"user":localStorage.getItem("Name"),"data":this.list}))
-  this.service.TriggerMail(this.list)
+  // this.service.TriggerMail(this.list)
 }
 }

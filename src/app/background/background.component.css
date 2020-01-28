@@ -5,20 +5,20 @@
     float: right;
     margin-right: 1%;
 }
-.container-fluid{
+.container{
     margin-top: 2%;
 }
 .piia{
     margin-left: 8%;
 }
-.container-fluid{
-    font-size: 15px;
+.container{
+    font-size: 22px;
  
 }
 ul{
     left: 12%;
     position: relative;
-    font-size: medium;
+    /* font-size: medium; */
     font-style: calibri;
     font-family: calibri;   
 }
